@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ini adalah Frontend Developer Course">
+    <meta name="keywords" content="Frontend, HTML, CSS, JavaScript, React, Git">
+    <meta name="author" content="Guru Domba">
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="path-to-the-image" />
+    <meta property="og:url" content="https://progate.com/" />
+    <meta property="og:title" content="Progate | Learn to code..." />
+    <meta property="og:description" content="Progate is an online platform..." />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Proyek HTML & CSS</title>
+    <link rel="icon" href="img/OIP.jpeg" type="image/png">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header data-aos="fade-up">
+        <div class="container">
+            <div class="header-left">
+                <h3>NINJA KEN</h3>
+            </div>
+            <div class="header-right">
+                <ul class="header-list">
+                    <li>Tentang Saya</li>
+                    <li>Proyek Contoh</li>
+                    <li>Hubungi Saya</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="top-wrapper">
+        <div class="heading">
+            <h1>NINJA KEN<span>.</span></h1>
+            <p>MY PORTOFOLIO</p>
+        </div>
+        <div class="image">
+            <img src="img/Ninja Ken.png" alt="judul ninja Ken" width="200">
+        </div>
+    </div>
+
+    <div class="about-wrapper">
+        <h2>Tentang Saya</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quibusdam minus aspernatur
+            alias praesentium
+            sunt quisquam explicabo eum, ipsum deleniti, doloremque dolorum totam ipsa eaque. Tenetur et architecto
+            minima omnis.</p>
+    </div>
+
+    <div class="gallery-wrapper">
+        <h2>Proyek Contoh</h2>
+        <div class="slider-container">
+            <div class="slider-item fade">
+              <img src="img/OIP (1).jpeg" />
+              <p>image 1</p>
+            </div>
+      
+            <div class="slider-item fade">
+              <img src="img/OIP (2).jpeg"width="350px" />
+              <p>image 2</p>
+            </div>
+      
+            <div class="slider-item fade">
+              <img src="img/OIP (3).jpeg" width="350px" />
+              <p>image 3</p>
+            </div>
+      
+            <div class="slider-item fade">
+              <img src="img/OIP (4).jpeg" width="350px" />
+              <p>Image 4</p>
+            </div>
+            <div class="slider-item fade">
+                <img src="img/OIP (5).jpeg" width="350px"/>
+                <p>Image 5</p>
+              </div>
+              <div class="slider-item fade">
+                <img src="img/OIP (6).jpeg" />
+                <p>Image 6</p>
+              </div>
+            <a class="prev" onclick="updateSlide(-1)">&#10094;</a>
+            <a class="next" onclick="updateSlide(1)">&#10095;</a>
+          </div>
+    </div>
+
+    <button class="accordion">Apa Itu Progate?</button>
+    <div class="panel">
+        <p class="po"> Progate adalah platform untuk belajar progamming online. Progate didirikan oleh Masa Kato, yang ia bentuk saat masih berkuliah jurusan computer science di Tokyo University.</p>
+    </div>
+    <button class="accordion">Mengapa harus memilih Progate?</button>
+    <div class="panel">
+        <p class="po">Progate telah memberi kebebasan kepada siapapun yang ingin mengenal coding untuk belajar dimanapun dan kapanpun serta bisa menjadi programmer mandiri. Progate telah digunakan oleh 1,2 juta orang di dunia, dengan menggunakan 15 bahasa program yang didalamnya terdapat 77 materi</p>
+    </div>
+
+    <div class="form-wrapper">
+        <h2>Hubungi Saya</h2>
+        <div class="form">
+            <input type="email" placeholder="Email (Diperlukan)">
+            <textarea name="message" rows="2" placeholder="Message (Diperlukan)"></textarea>
+            <div id="openModalButton" class="btn">Kirim</div>
+    </div>
+
+    <footer>
+        <h2>NINJA KEN</h2>
+        <div class="list-footer">
+            <ul>
+                <li>Tentang Saya</li>
+                <li>Proyek Contoh</li>
+                <li>Hubungi Saya</li>
+            </ul>
+        </div>
+        <script src="script3.js"></script>
+    </footer>
+         <script>
+            const accordion = document.getElementsByClassName ("accordion");
+
+
+for (let i = 0; i < accordion.length; i++){
+    accordion[i].addEventListener("click", function (){
+         const panel = this.nextElementSibling;
+
+         if (panel.style.display === "block"){
+            panel.style.display = "none";
+         } else{
+            panel.style.display = "block";
+         }
+    });
+}
+
+let slideIndex = 0;
+
+const updateSlide = (n) => {
+  slideIndex += n;
+  showSlide(slideIndex);
+}
+
+const showSlide = (n) => {
+  const slides = document.getElementsByClassName("slider-item");
+  if (n > slides.length - 1) {
+    slideIndex = 0;
+  }
+  if (n < 0) {
+    slideIndex = slides.length - 1;
+  }
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex].style.display = "block";
+}
+
+showSlide(slideIndex);
+
+
+const modal = document.getElementById("myModal");
+const openButton = document.getElementById("openModalButton");
+const closeIcon = document.getElementById("closeModalIcon");
+
+// Ketika tombol openButton ditekan
+openButton.addEventListener('click', () => {
+  modal.style.display = "block";
+});
+
+// Ketika tombol closeButton ditekan
+closeIcon.addEventListener('click', () => {
+  modal.style.display = "none";
+});
+         </script>
+</body>
+</html>
